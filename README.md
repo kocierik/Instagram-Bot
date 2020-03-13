@@ -1,3 +1,3 @@
 # IG
 Instagram
-1)create an automatic account     2)log in with an account      3)follow a user
+create an automatic account,     log in with an account,      follow a user
