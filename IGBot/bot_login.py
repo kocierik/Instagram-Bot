@@ -49,5 +49,5 @@ class InstagramBotLogin:
 
  
 if __name__ == '__main__':
-    ig_bot = InstagramBotLogin('bot17517', 'samsung1', 'erik_pcc_')
+    ig_bot = InstagramBotLogin('USERNAME', 'PASSWORD', 'USERNAME-TO-FOLLOW')
 
