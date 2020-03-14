@@ -35,7 +35,8 @@ class InstagramBotRegister:
 
 if __name__ == '__main__':
     f = open("user.txt", "a+")
-    f.write("USERNAME --> bot" + str(value) + "\n")
     value = randint(0, 100000)
+    f.write("USERNAME --> bot" + str(value) + "\n")
+    
     ig_bot = InstagramBotRegister(
         'PHONE-NUMBER', 'bot' + str(value), 'bot' + str(value), 'PASSWORD')
