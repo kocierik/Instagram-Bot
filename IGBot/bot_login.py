@@ -38,16 +38,11 @@ class InstagramBotLogin:
         self.driver.find_element_by_class_name('L3NKy').click()
         time.sleep(1)
 
-
     def nav_user(self, user):
         self.driver.get('{}/{}'.format(self.base_url, user))
 
     def follow_user(self):
         self.driver.find_element_by_class_name('jIbKX').click()
 
-
-
- 
 if __name__ == '__main__':
-    ig_bot = InstagramBotLogin('USERNAME', 'PASSWORD', 'USERNAME-TO-FOLLOW')
-
+    ig_bot = InstagramBotLogin('SET-LOGIN-ACCOUNT', 'SET-PASSWORD', 'SET-USERNAME-TO-FOLLOW')
