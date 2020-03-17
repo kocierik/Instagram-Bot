@@ -26,23 +26,46 @@ class InstagramBotLogin:
         time.sleep(2)
         self.base_url = "https://www.instagram.com"
         self.nav_user(user)
-        time.sleep(1)
+        time.sleep(2)
         self.follow_user()
+        time.sleep(2)
+        self.driver.close()
 
     def login(self):
         self.driver.get('https://www.instagram.com/accounts/login/')
-        time.sleep(1)
+        time.sleep(2)
         self.driver.find_element_by_name('username').send_keys(self.username)
         self.driver.find_element_by_name('password').send_keys(self.password)
-        time.sleep(1)
+        time.sleep(2)
         self.driver.find_element_by_class_name('L3NKy').click()
-        time.sleep(1)
+        time.sleep(2)
 
     def nav_user(self, user):
         self.driver.get('{}/{}'.format(self.base_url, user))
 
-    def follow_user(self):
-        self.driver.find_element_by_class_name('jIbKX').click()
+    def follow_user(self):  # FOLLOW AND UNFOLLOW AN USER
+        try:
+            self.driver.find_element_by_class_name(
+                'L3NKy   ').click()
+        except Exception as e:
+            print('errore' + format(e))
+        try:
+            self.driver.find_element_by_class_name(
+                '_5f5mN   ').click()
+        except Exception as e:
+            print('errore' + format(e))
+        time.sleep(2)
+        try:
+            self.driver.find_element_by_class_name(
+                '-Cab_').click()
+        except Exception as e:
+            print('errore' + format(e))
+
 
 if __name__ == '__main__':
-    ig_bot = InstagramBotLogin('SET-LOGIN-ACCOUNT', 'SET-PASSWORD', 'SET-USERNAME-TO-FOLLOW')
+    file = open("user.txt", "r")
+    righe = file.readlines()
+    print(righe)
+    for riga in righe:
+        print(riga)
+        ig_bot = InstagramBotLogin(riga, 'INSERT-PASSWORD', 'USERNAME-TO-FOLLOW')

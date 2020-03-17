@@ -22,12 +22,14 @@ class InstagramBotRegister:
 
         self.driver = webdriver.Chrome('./chromedriver.exe')
         self.register()
-        time.sleep(2)
+        time.sleep(10)
         code = prova.InstagramBotRegister1.register1(
-            self, "https://freephonenum.com/us/receive-sms/5417083275")
+            self, "https://www.receivesms.co/italian-phone-number/3350/")
         time.sleep(3)
-        self.code_verify(code)
-
+        try:
+            self.code_verify(code)
+        except Exception as e:
+            print("errore numero")
     def register(self):
         self.driver.get('https://www.instagram.com/accounts/emailsignup/')
         time.sleep(2)
@@ -47,14 +49,18 @@ class InstagramBotRegister:
         final = self.driver.find_element_by_css_selector(
             '#react-root > section > main > div > article > div > div:nth-child(1) > div > div > div > form > div.Igw0E.IwRSH.eGOV_._4EzTm.MGdpg.CovQj.jKUp7 > button')
         final.click()
+        time.sleep(2)
+        self.driver.find_element_by_id(
+            'igCoreRadioButtonageRadioabove_18').click()
+        time.sleep(1)
+        self.driver.find_element_by_css_selector(
+            'body > div.RnEpo.Yx5HN > div > div._0GT5G > div > button').click()
 
 
-
-    
 if __name__ == '__main__':
-    def only_number(number):
-        number = int(re.search(r'\d+', number).group(0))
+
     f = open("user.txt", "a+")
     value = randint(0, 100000)
-    f.write("USERNAME --> bot" + str(value) + "\n")
-    ig_bot = InstagramBotRegister('TELEPHONE-NUMBER', 'bot' + str(value), 'bot' + str(value), 'PASSWORD')
+    f.write("INSERT-USERNAME" + str(value) + "\n")
+    ig_bot = InstagramBotRegister(
+        'INSERT-NUMBER', 'INSERT-NAME' + str(value), 'INSERT-USERNAME PLUS NUMBER-RANDOM ->' + str(value), 'INSERT-THE-PASSWORD')

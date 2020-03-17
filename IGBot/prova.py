@@ -16,18 +16,22 @@ class InstagramBotRegister1:
         time.sleep(2)
 
     def register1(self, link):
-        options = webdriver.ChromeOptions() 
-        driver = webdriver.Chrome(chrome_options=options, executable_path=r'./chromedriver.exe')
+        options = webdriver.ChromeOptions()
+        driver = webdriver.Chrome(
+            chrome_options=options, executable_path=r'./chromedriver.exe')
         driver.get(link)
         time.sleep(8)
-        
+
         try:
             code = driver.find_element_by_css_selector(
-                'body > section > div > div.row > div.col-lg-9 > table > tbody > tr:nth-child(1) > td:nth-child(3)').text
-            code = int(re.search(r'\d+', code).group(0))
+                '#msgtbl > div:nth-child(4) > div.col-xs-12.col-md-8').text
+            #code.strip()
+            code = [str(s) for s in code.split() if s.isdigit()]  
             print(code)
+            number = str(code[0]) + str(code[1])
+            print(number)
             time.sleep(1)
             driver.close()
-            return code
+            return number
         except Exception as e:
             print('Exception-AAAAA', format(e))
